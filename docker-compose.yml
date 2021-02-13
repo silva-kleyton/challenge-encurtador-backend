@@ -1,0 +1,29 @@
+version: "3.2"
+services:
+  database:
+    image: postgres
+    container_name: database
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: admin
+  api:
+    image: node:12.14
+    container_name: challange-encurtador-backend
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    env_file:
+      - .env
+    command: yarn start
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
