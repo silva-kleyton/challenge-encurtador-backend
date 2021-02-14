@@ -1,5 +1,5 @@
 import { Router } from "express";
-import ShortenerLink from "../controllers/ShortenerLink";
+import ShortenerLink from "@controllers/ShortenerLink";
 
 const router = Router();
 

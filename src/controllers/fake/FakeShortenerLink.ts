@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import ShortLinkRepository from "@repositories/ShortLink.repositores";
+import ShortLinkRepository from "@repositories/fakes/FakeShortLink.fake";
 import randomHashString from "@utils/GenerateRandomString.utils";
-import CreateShortLink from "@services/CreateShortLinkService";
-class ShortenerLink {
+import CreateShortLinkService from "@services/CreateShortLinkService";
+class FakeShortenerLink {
   async createShortenLink(request: Request, response: Response) {
     try {
       const { url } = request.body;
@@ -14,7 +14,7 @@ class ShortenerLink {
 
       const shortLinkRepository = new ShortLinkRepository();
 
-      const createShortLink = new CreateShortLink(shortLinkRepository);
+      const createShortLink = new CreateShortLinkService(shortLinkRepository);
 
       const result = await createShortLink.execute({
         originUrl: url,
@@ -24,7 +24,6 @@ class ShortenerLink {
 
       return response.status(200).json({ url: result.shortUrl });
     } catch (error) {
-      console.log("Error ==>", error);
       return response.status(400).json(error.message);
     }
   }
@@ -49,4 +48,4 @@ class ShortenerLink {
   }
 }
 
-export default new ShortenerLink();
+export default new FakeShortenerLink();
