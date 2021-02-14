@@ -5,7 +5,7 @@ services:
     container_name: database
     restart: always
     ports:
-      - 5432:5432
+      - ${DB_PORT}:5432
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
@@ -17,7 +17,7 @@ services:
     depends_on:
       - database
     ports:
-      - 3000:3000
+      - ${SERVER_PORT}:${SERVER_PORT}
     volumes:
       - .:/usr/src/app
     working_dir: /usr/src/app

@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 
 @Entity("short_link")
-export class ShortLink {
+export default class ShortLink {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 

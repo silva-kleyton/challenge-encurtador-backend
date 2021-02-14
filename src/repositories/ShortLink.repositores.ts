@@ -1,13 +1,13 @@
-import { ShortLink } from "../models/ShortLink";
+import ShortLink from "../models/ShortLink";
 import { EntityRepository, Repository, Raw } from "typeorm";
 
 @EntityRepository(ShortLink)
 export default class ShortLinkRepository extends Repository<ShortLink> {
-  public async findByOriginalLink(
+  public async findByOriginalLinkInValidity(
     originUrl: string
   ): Promise<ShortLink | null> {
     const shortObject = await this.findOne({
-      where: { originUrl },
+      where: { originUrl, expiresIn: Raw((alias) => `${alias} > NOW()`) },
     });
 
     return shortObject || null;
