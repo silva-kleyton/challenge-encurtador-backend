@@ -24,6 +24,12 @@ export default class ShortLink1613263588099 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: "codeLink",
+            type: "varchar",
+            isNullable: false,
+            isUnique: true,
+          },
+          {
             name: "expiresIn",
             type: "timestamp with time zone",
             isNullable: false,

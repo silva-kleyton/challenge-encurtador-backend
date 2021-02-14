@@ -4,8 +4,9 @@ import ShortenerLink from "../controllers/ShortenerLink";
 const router = Router();
 
 /**
- * Shortener controller
+ * Shortener routes
  */
+router.get("/:shortUrl", ShortenerLink.getShortenLink);
 router.post("/encurtador", ShortenerLink.createShortenLink);
 
 export default router;

@@ -18,6 +18,9 @@ export class ShortLink {
   shortUrl: string;
 
   @Column()
+  codeLink: string;
+
+  @Column()
   expiresIn: Date;
 
   @CreateDateColumn()
