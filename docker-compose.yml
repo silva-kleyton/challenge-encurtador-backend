@@ -7,7 +7,9 @@ services:
     ports:
       - 5432:5432
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
+      POSTGRES_DB: db_challenge_encurtador
   api:
     image: node:12.14
     container_name: challange-encurtador-backend

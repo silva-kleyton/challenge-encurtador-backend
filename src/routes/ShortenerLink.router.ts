@@ -6,6 +6,6 @@ const router = Router();
 /**
  * Shortener controller
  */
-router.post("/", ShortenerLink.createShortenLink);
+router.post("/encurtador", ShortenerLink.createShortenLink);
 
 export default router;

@@ -1,11 +1,12 @@
-import { Router, Response } from "express";
+import { Router } from "express";
 import ShortenerLink from "./ShortenerLink.router";
 
 const routes = Router();
 
-routes.get("/", (response: Response) => {
-  return response.json({ ok: true });
+routes.get("/", (request, response) => {
+  return response.status(200).send("<h1>Teste</h1>");
 });
+
 routes.use("", ShortenerLink);
 
 export default routes;

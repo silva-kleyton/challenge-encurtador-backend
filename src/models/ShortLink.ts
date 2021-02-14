@@ -7,15 +7,15 @@ import {
 } from "typeorm";
 
 @Entity("short_link")
-class ShortLink {
+export class ShortLink {
   @PrimaryGeneratedColumn("uuid")
-  id?: string;
+  id: string;
 
   @Column()
   originUrl: string;
 
   @Column()
-  shortUrl: Date;
+  shortUrl: string;
 
   @Column()
   expiresIn: Date;
@@ -26,5 +26,3 @@ class ShortLink {
   @UpdateDateColumn()
   updated_at: Date;
 }
-
-export default ShortLink;
