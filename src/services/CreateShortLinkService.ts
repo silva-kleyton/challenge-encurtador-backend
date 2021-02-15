@@ -19,7 +19,7 @@ export default class CreateShortLink {
     if (verifyExistsOriginalLink) return verifyExistsOriginalLink;
 
     const codeLink = randomHashString();
-    const shortUrl = `${process.env.BASE_URL}:${process.env.SERVER_PORT}/${codeLink}`;
+    const shortUrl = `${process.env.BASE_URL}/${codeLink}`;
 
     const objectShortLink = await this.shortLinkRepository.create({
       shortUrl,
