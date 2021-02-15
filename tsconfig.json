@@ -10,7 +10,7 @@
     "strictPropertyInitialization": false,
     "baseUrl": "./src",
     "paths": {
-      "@controllers/*": ["controllers/*"],
+      "@erros/*": ["erros/*"],
       "@models/*": ["models/*"],
       "@repositories/*": ["repositories/*"],
       "@routes/*": ["routes/*"],
