@@ -1,7 +1,7 @@
 {
   "name": "challenge-encurtador-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Api challenge-encurtador-backend. Serviço para encurtar url",
   "main": "server.ts",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",

@@ -13,7 +13,7 @@ const router = Router();
 router.post("/encurtador", async (request: Request, response: Response) => {
   const { url } = request.body;
 
-  if (!url) return response.status(400).json({ message: "url is required" });
+  if (!url) throw new AppError("Url id required", 404);
 
   const shortLinkRepository = new ShortLinkRepository();
   const createShortLink = new CreateShortLink(shortLinkRepository);
@@ -25,6 +25,8 @@ router.post("/encurtador", async (request: Request, response: Response) => {
 
 router.get("/:codeLink", async (request: Request, response: Response) => {
   const { codeLink } = request.params;
+
+  if (!codeLink || codeLink.length <= 0) throw new AppError("Url invalid", 400);
 
   const shortLinkRepository = new ShortLinkRepository();
   const getShortLink = new GetShortLink(shortLinkRepository);
