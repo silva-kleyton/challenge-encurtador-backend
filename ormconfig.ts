@@ -3,11 +3,12 @@ import "dotenv/config";
 //
 export default {
   type: "postgres",
-  host: "ec2-52-23-190-126.compute-1.amazonaws.com",
-  port: "5432",
-  username: "mxmsnxbjuydcaa",
-  password: "8dc73db070581a3de6e4ba96d73e8b539e3a96e77c7825203f70dd28012c58f6",
-  database: "dd6vtp2mkoolgf",
+  host:
+    process.env.RUN_DOCKER === "true" ? "host.docker.internal" : "localhost",
+  port: process.env.DB_PORT,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_DATABASE,
   entities: ["./src/models/*.ts"],
   migrations: ["./src/database/migrations/*.ts"],
   cli: {
